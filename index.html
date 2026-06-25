@@ -888,7 +888,7 @@
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();articleOverlay.classList.remove('show');pfOverlay.classList.remove('show');document.getElementById('chatPanel').classList.remove('show');}});
   // Адрес твоего backend'а (см. server.py) — после деплоя вставь сюда реальный URL
-  const LEAD_ENDPOINT = 'https://nyx-labsteam-api.onrender.com/api/lead';
+  const LEAD_ENDPOINT = 'https://nyxteamlabs.onrender.com/api/lead';
   document.getElementById('contactForm').addEventListener('submit',async e=>{
     e.preventDefault();
     const form=e.target;
@@ -916,7 +916,7 @@
   });
 
   // live chat widget
-  const CHAT_ENDPOINT = 'https://nyx-labsteam-api.onrender.com/api/chat';
+  const CHAT_ENDPOINT = 'https://nyxteamlabs.onrender.com/api/chat';
   (function(){
     const bubble=document.getElementById('chatBubbleBtn');
     const panel=document.getElementById('chatPanel');
