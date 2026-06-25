@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nyx Labs — разработка сайтов, ботов и AI-интеграций</title>
+<meta name="description" content="Nyx Labs — создаём сайты, дизайн карточек, Telegram-боты, AI-интеграции, парсеры и аналитику под ключ. Прямая связь с разработчиком, без агентских накруток." />
+<!-- ЗАМЕНИ https://nyxlabs.example на свой реальный домен везде ниже -->
+<link rel="canonical" href="https://nyxlabs.example/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Nyx Labs — разработка сайтов, ботов и AI-интеграций" />
+<meta property="og:description" content="Сайты, дизайн карточек, Telegram-боты, AI-автоматизация, парсеры и аналитика — от идеи до запуска." />
+<meta property="og:url" content="https://nyxlabs.example/" />
+<meta property="og:image" content="https://nyxlabs.example/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nyx Labs — разработка сайтов, ботов и AI-интеграций" />
+<meta name="twitter:description" content="Сайты, дизайн карточек, Telegram-боты, AI-автоматизация, парсеры и аналитика — от идеи до запуска." />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Nyx Labs",
+  "description": "Разработка сайтов, дизайн карточек и графики, ПО и Telegram-боты, AI-интеграции и автоматизация, парсеры и аналитика.",
+  "url": "https://nyxlabs.example/",
+  "areaServed": "RU",
+  "makesOffer": [
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Создание сайтов"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дизайн карточек и графики"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Разработка ПО и Telegram-ботов"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI-интеграции и автоматизация"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Парсеры и сбор данных"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Аналитика и ML-модели"}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#eef0f2;
+    --ink:#0d0f12;
+    --muted:#7c8289;
+    --line:#e7e9ec;
+    --blue:#2f6bff;
+    --radius:22px;
+    --shadow:0 18px 50px rgba(20,25,40,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:0 52px}
+  a{text-decoration:none;color:inherit}
+  button{font-family:inherit}
+
+  /* ---------- Header ---------- */
+  header{padding:22px 0;position:sticky;top:0;z-index:50;background:rgba(238,240,242,.82);backdrop-filter:blur(10px)}
+  .nav{display:flex;align-items:center;gap:38px}
+  .logo{font-weight:800;font-size:22px;letter-spacing:-.02em;display:flex;align-items:flex-start;gap:2px;cursor:pointer}
+  .logo sup{color:var(--blue);font-size:15px;font-weight:800;line-height:1}
+  .nav-links{display:flex;gap:34px;margin:0 auto;font-size:15px;color:#3c4148;font-weight:500}
+  .nav-links a{position:relative;transition:.15s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .btn{border:none;cursor:pointer;font-weight:600;font-size:15px;border-radius:14px;padding:13px 22px;transition:.18s}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#23262b;transform:translateY(-1px)}
+  .btn-light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn-light:hover{background:#f7f8f9}
+  .btn-pill{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 22px;font-weight:600;font-size:15px;cursor:pointer;transition:.18s}
+  .btn-pill:hover{background:#f7f8f9}
+  .burger{width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px}
+  .burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:.2s}
+  .burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+  /* mobile menu */
+  .mobile-menu{display:none;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:18px;margin:14px 0 0;padding:10px;box-shadow:var(--shadow)}
+  .mobile-menu.show{display:flex}
+  .mobile-menu a{padding:11px 14px;border-radius:10px;font-weight:500;font-size:15px}
+  .mobile-menu a:hover{background:#f5f6f7}
+
+  /* ---------- Hero ---------- */
+  .hero{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1.12fr);gap:30px;align-items:center;padding:46px 0 70px}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600;color:#3c4148}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+  .badge-grey{display:inline-block;background:#e7e9ec;color:#6b7177;border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:600}
+  .hero h1{font-size:54px;line-height:1.08;letter-spacing:-.03em;font-weight:800;margin:24px 0 22px}
+  .hero p.lead{font-size:17px;color:var(--muted);max-width:430px;margin-bottom:32px}
+  .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .btn-arrow{display:inline-flex;align-items:center;gap:34px}
+  .proof{display:flex;align-items:center;gap:14px;margin-top:36px}
+  .avatars{display:flex}
+  .avatars img{width:38px;height:38px;border-radius:50%;border:2px solid var(--bg);object-fit:cover;margin-left:-10px}
+  .avatars img:first-child{margin-left:0}
+  .stackbadges{display:flex;gap:6px;flex-wrap:wrap}
+  .stackchip{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 11px;font-size:12.5px;font-weight:700;color:#3c4148}
+  .proof b{font-size:14.5px;font-weight:700}
+  .proof small{display:block;font-size:13.5px;color:var(--muted);font-weight:500}
+
+  /* ---------- Laptop ---------- */
+  .laptop-stage{justify-self:end;width:100%;max-width:640px;perspective:2200px}
+  .laptop{transform:rotateY(-13deg) rotateX(3deg) rotate(-1deg);transform-style:preserve-3d;transition:transform .5s ease}
+  .laptop:hover{transform:rotateY(-7deg) rotateX(2deg)}
+  .screen{
+    background:#fff;border-radius:18px 18px 0 0;border:9px solid #16181c;border-bottom:none;
+    overflow:hidden;box-shadow:0 30px 70px rgba(20,25,40,.22);
+  }
+  .camera{width:5px;height:5px;border-radius:50%;background:#33363c;position:absolute;top:3px;left:50%;transform:translateX(-50%)}
+  .scr-inner{position:relative}
+  .dash{display:grid;grid-template-columns:132px 1fr;min-height:340px;background:#fcfcfd;font-size:9px}
+  .dash-side{border-right:1px solid #eef0f2;padding:13px 11px;background:#fff;display:flex;flex-direction:column}
+  .dash-logo{font-weight:800;font-size:11px;display:flex;gap:1px;margin:2px 4px 16px}
+  .dash-logo sup{color:var(--blue);font-size:7px}
+  .dash-side ul{list-style:none;display:flex;flex-direction:column;gap:3px}
+  .dash-side li{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;color:#9aa0a6;font-weight:500;cursor:pointer}
+  .dash-side li svg{width:11px;height:11px;flex:none}
+  .dash-side li.active{background:#f3f5f7;color:#22262b;font-weight:600}
+  .dash-main{padding:11px 15px 15px}
+  .dash-top{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-bottom:8px}
+  .dash-top .ib{width:16px;height:16px;border-radius:5px;border:1px solid #eceef1;display:flex;align-items:center;justify-content:center;color:#9aa0a6}
+  .dash-top .ib svg{width:9px;height:9px}
+  .dash-top .av{width:18px;height:18px;border-radius:50%;object-fit:cover}
+  .av-fallback{width:18px;height:18px;border-radius:50%;background:var(--blue);color:#fff;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .ri-ph{width:20px;height:20px;border-radius:7px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:700}
+  .dash-hi{font-weight:700;font-size:12.5px;color:#15181d;margin-bottom:11px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
+  .stat{background:#fafbfc;border:1px solid #eef0f2;border-radius:10px;padding:9px 10px;text-align:center}
+  .stat b{font-size:15px;font-weight:800;color:#15181d}
+  .stat small{display:block;color:#9aa0a6;font-size:7px;margin-top:3px}
+  .panel-row{display:grid;grid-template-columns:1.45fr 1fr;gap:9px}
+  .act{background:#fafbfc;border:1px solid #eef0f2;border-radius:11px;padding:10px 11px}
+  .act .t{font-weight:600;font-size:9px;color:#5b6168;margin-bottom:6px}
+  .chart{display:grid;grid-template-columns:14px 1fr;gap:3px;height:96px}
+  .yax{display:flex;flex-direction:column;justify-content:space-between;font-size:5.5px;color:#c2c7cd;padding:2px 0}
+  .plot{position:relative}
+  .plot svg{width:100%;height:84px;display:block}
+  .xax{display:flex;justify-content:space-between;font-size:5.5px;color:#c2c7cd;margin-top:1px}
+  .tip{position:absolute;left:46%;top:18%;transform:translateX(-50%);background:#15181d;color:#fff;font-size:7px;font-weight:600;padding:2px 6px;border-radius:6px}
+  .tip::after{content:"";position:absolute;bottom:-3px;left:50%;transform:translateX(-50%);border:3px solid transparent;border-top-color:#15181d;border-bottom:none}
+  .recent{background:#fafbfc;border:1px solid #eef0f2;border-radius:11px;padding:10px 11px}
+  .recent .rh{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+  .recent .rh b{font-size:9px;color:#3c4148}
+  .recent .rh a{font-size:7px;color:var(--blue);cursor:pointer}
+  .ritem{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid #f1f3f5}
+  .ritem:first-of-type{border-top:none}
+  .ritem .ri{width:20px;height:20px;border-radius:7px;flex:none;object-fit:cover}
+  .ritem .rt{flex:1}
+  .ritem .rt b{display:block;font-size:8px;color:#22262b;font-weight:600}
+  .ritem .rt small{font-size:6.5px;color:#9aa0a6}
+  .ritem .rar{color:#c2c7cd;font-size:9px}
+  .notch{height:6px;background:#16181c;border-radius:0 0 9px 9px;width:74%;margin:0 auto}
+  .base{height:15px;background:linear-gradient(#d3d7db,#a9aeb5);border-radius:0 0 14px 14px;position:relative}
+  .base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:92px;height:6px;background:#9398a0;border-radius:0 0 9px 9px}
+
+  /* ---------- Sheet ---------- */
+  .sheet{background:#fafbfc;border-radius:40px 40px 0 0;margin-top:-30px;position:relative;z-index:2;padding-top:8px}
+  .sec{padding:64px 0 8px;scroll-margin-top:90px}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin:18px 0 40px}
+  .sec-head h2{font-size:38px;line-height:1.12;letter-spacing:-.025em;font-weight:800;max-width:560px}
+  .sec-head .desc{font-size:15px;color:var(--muted);max-width:330px}
+
+  /* ---------- Services ---------- */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .scard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 22px 26px;transition:.2s}
+  .scard:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .sicon{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:42px}
+  .sicon svg{width:26px;height:26px;color:#fff}
+  .g-blue{background:linear-gradient(150deg,#3f7bff,#2f6bff)}
+  .g-violet{background:linear-gradient(150deg,#8a7bff,#6c5cff)}
+  .g-teal{background:linear-gradient(150deg,#34d6b4,#16b894)}
+  .g-sky{background:linear-gradient(150deg,#4f93ff,#2f6bff)}
+  .g-amber{background:linear-gradient(150deg,#ffb648,#ff8a00)}
+  .g-rose{background:linear-gradient(150deg,#ff7aa8,#ff4d7e)}
+  .scard h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .scard p{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+  .more{font-size:13.5px;font-weight:600;color:var(--ink);display:inline-flex;gap:7px;align-items:center;cursor:pointer;background:none;border:none;padding:0;transition:.15s}
+  .more:hover{gap:11px}
+
+  /* ---------- Cases ---------- */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .ccard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px 14px 22px;transition:.2s}
+  .ccard:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .cimg{height:160px;border-radius:14px;position:relative;overflow:hidden;margin-bottom:18px}
+  .ctag{position:absolute;left:12px;bottom:12px;background:#fff;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:600;color:#3c4148;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+  .ccard h3{font-size:18px;font-weight:700;margin:0 8px 10px;letter-spacing:-.01em}
+  .ccard p{font-size:13.5px;color:var(--muted);margin:0 8px}
+  .cimg-1{background:#f3f5f7}
+  .cimg-1 .mini{position:absolute;inset:14px;background:#fff;border-radius:10px;box-shadow:inset 0 0 0 1px #eef0f2;display:grid;grid-template-columns:34px 1fr;overflow:hidden}
+  .cimg-1 .mini .s{background:#fafbfc;border-right:1px solid #eef0f2}
+  .cimg-1 .mini .b{padding:9px}
+  .cimg-1 .mini .bar{height:6px;background:#eef0f2;border-radius:4px;margin-bottom:6px;width:70%}
+  .cimg-1 .mini .donut{width:42px;height:42px;border-radius:50%;background:conic-gradient(#2f6bff 0 40%,#34d6b4 40% 70%,#ffce4f 70% 100%);float:right;margin:-2px 4px 0 0}
+  .cimg-2{background:linear-gradient(160deg,#d7dadf,#c4c8ce)}
+  .cimg-2 .phone{position:absolute;width:84px;height:150px;background:#16181c;border-radius:16px;border:3px solid #2a2d33;top:24px}
+  .cimg-2 .phone.p1{left:42%;transform:rotate(-6deg)}
+  .cimg-2 .phone.p2{left:54%;transform:rotate(6deg)}
+  .cimg-2 .phone .b{position:absolute;left:8px;right:8px;height:7px;border-radius:4px;background:#2f6bff}
+  .cimg-3{background:#0c1020;overflow:hidden}
+  .cimg-3 .wave{position:absolute;inset:0;background:
+    radial-gradient(140px 80px at 70% 60%,rgba(120,90,255,.9),transparent 70%),
+    radial-gradient(180px 90px at 55% 40%,rgba(60,120,255,.8),transparent 70%),
+    radial-gradient(120px 120px at 85% 50%,rgba(180,120,255,.7),transparent 70%)}
+
+  /* ---------- Process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;border-top:1px solid var(--line);padding-top:30px;margin-top:8px}
+  .step .num{font-size:13px;font-weight:700;color:#c2c7cd;margin-bottom:14px}
+  .step h4{font-size:15.5px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .step p{font-size:13px;color:var(--muted)}
+  .pad-bottom{padding-bottom:90px}
+
+  /* ---------- About ---------- */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .about .checklist{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:14px}
+  .about .checklist li{display:flex;gap:12px;font-size:15px;color:#3c4148}
+  .about .checklist .ck{width:24px;height:24px;border-radius:7px;background:#e9f0ff;color:var(--blue);display:flex;align-items:center;justify-content:center;flex:none;font-size:13px;font-weight:700}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .mcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 24px;transition:.2s}
+  .mcard:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .mcard .big{font-size:40px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(120deg,#2f6bff,#6c5cff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .mcard p{font-size:13.5px;color:var(--muted);margin-top:6px}
+  .mcard.dark{background:#0f1117;border-color:#0f1117}
+  .mcard.dark .big{color:#fff;-webkit-text-fill-color:#fff}
+  .mcard.dark p{color:#9aa0a6}
+
+  /* ---------- Testimonials ---------- */
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 24px;transition:.2s;display:flex;flex-direction:column;gap:16px}
+  .tcard:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .stars{color:#ffb020;font-size:15px;letter-spacing:2px}
+  .tcard p{font-size:14.5px;color:#3c4148;line-height:1.6;flex:1}
+  .tperson{display:flex;align-items:center;gap:12px}
+  .tperson img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+  .tperson b{display:block;font-size:14px;font-weight:700}
+  .tperson small{font-size:12.5px;color:var(--muted)}
+
+  /* ---------- Blog ---------- */
+  .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .bcard{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.2s;cursor:pointer}
+  .bcard:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .bcard .cover{height:150px;position:relative}
+  .bc1{background:linear-gradient(135deg,#3f7bff,#6c5cff)}
+  .bc2{background:linear-gradient(135deg,#16b894,#34d6b4)}
+  .bc3{background:linear-gradient(135deg,#7a5cff,#b86cff)}
+  .bcard .cover span{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.92);border-radius:8px;padding:5px 11px;font-size:12px;font-weight:600;color:#3c4148}
+  .bcard .body{padding:20px 22px 24px}
+  .bcard .body small{font-size:12.5px;color:var(--muted)}
+  .bcard h4{font-size:17px;font-weight:700;margin:8px 0 10px;letter-spacing:-.01em;line-height:1.3}
+  .bcard .body p{font-size:13.5px;color:var(--muted)}
+
+  /* ---------- CTA ---------- */
+  .cta-wrap{padding:24px 0 64px}
+  .cta{background:linear-gradient(125deg,#11131a 0%,#1b1f33 55%,#2a2566 100%);border-radius:32px;padding:64px 56px;position:relative;overflow:hidden;text-align:center}
+  .cta::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,255,.55),transparent 70%);top:-160px;right:-80px}
+  .cta::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(47,107,255,.45),transparent 70%);bottom:-180px;left:-60px}
+  .cta .inner{position:relative;z-index:1}
+  .cta h2{color:#fff;font-size:38px;font-weight:800;letter-spacing:-.025em;line-height:1.1;max-width:680px;margin:0 auto 16px}
+  .cta p{color:#b9bdc9;font-size:16px;max-width:520px;margin:0 auto 30px}
+  .cta .btn-white{background:#fff;color:#0d0f12}
+  .cta .btn-white:hover{background:#eef0f2;transform:translateY(-1px)}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* ---------- Footer ---------- */
+  footer{background:#0d0f12;color:#c7ccd4;padding:64px 0 30px}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:40px}
+  footer .logo{color:#fff;margin-bottom:14px}
+  footer .fdesc{font-size:14px;color:#8b919b;max-width:280px;line-height:1.6}
+  .fcol h5{font-size:14px;font-weight:700;color:#fff;margin-bottom:16px}
+  .fcol a{display:block;font-size:14px;color:#9aa0a6;margin-bottom:11px;cursor:pointer;transition:.15s}
+  .fcol a:hover{color:#fff}
+  .fcontact div{font-size:14px;color:#c7ccd4;margin-bottom:11px}
+  .fcontact b{color:#fff}
+  .socials{display:flex;gap:10px;margin-top:16px}
+  .socials a{width:38px;height:38px;border-radius:10px;background:#191c22;display:flex;align-items:center;justify-content:center;color:#c7ccd4;transition:.15s}
+  .socials a:hover{background:var(--blue);color:#fff}
+  .socials svg{width:18px;height:18px}
+  .fbottom{border-top:1px solid #1c1f26;margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;font-size:13px;color:#7c828c;flex-wrap:wrap}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Modal ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(13,15,18,.5);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+  .overlay.show{display:flex}
+  .modal{background:#fff;border-radius:24px;max-width:440px;width:100%;padding:32px;box-shadow:0 30px 80px rgba(0,0,0,.3);transform:translateY(10px);animation:pop .25s ease forwards}
+  @keyframes pop{to{transform:translateY(0)}}
+  .modal h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .modal p.sub{font-size:14.5px;color:var(--muted);margin-bottom:22px}
+  .modal label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#3c4148}
+  .modal input,.modal textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-family:inherit;font-size:14.5px;margin-bottom:14px;background:#fafbfc;transition:.15s}
+  .modal input:focus,.modal textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(47,107,255,.12)}
+  .modal textarea{resize:vertical;min-height:84px}
+  .modal .row{display:flex;gap:12px;margin-top:4px}
+  .modal .btn-dark{flex:1}
+  .modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:17px;color:#7c8289;line-height:1}
+  .modal-wrap{position:relative}
+  .ok-msg{display:none;text-align:center;padding:10px 0}
+  .ok-msg.show{display:block}
+  .ok-msg .check{width:56px;height:56px;border-radius:50%;background:#e9f7ef;color:#16b894;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px}
+
+  /* ---------- FAQ ---------- */
+  .faq{display:flex;flex-direction:column;gap:12px;max-width:760px}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:4px 22px;transition:.2s}
+  .faq-item:hover{box-shadow:var(--shadow)}
+  .faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 0;font-weight:700;font-size:15.5px;color:#15181d}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item .arrow{transition:.25s;color:#9aa0a6;flex:none;font-size:20px;font-weight:400}
+  .faq-item[open] .arrow{transform:rotate(45deg)}
+  .faq-item p{padding:0 0 18px;color:var(--muted);font-size:14.5px;line-height:1.65;max-width:640px}
+
+  /* ---------- Floating quick-contact ---------- */
+  .float-cta{position:fixed;bottom:24px;right:24px;z-index:40;display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:15px 22px;font-weight:600;font-size:14.5px;cursor:pointer;box-shadow:0 14px 32px rgba(20,25,40,.28);transition:.2s}
+  .float-cta:hover{background:#23262b;transform:translateY(-2px)}
+  .float-cta svg{width:18px;height:18px;flex:none}
+  @media(max-width:560px){.float-cta span{display:none}.float-cta{padding:15px;border-radius:50%}}
+
+  /* ---------- Active nav link ---------- */
+  .nav-links a.active{color:var(--ink)}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:var(--blue);border-radius:2px}
+
+  /* ---------- Article modal ---------- */
+  .article-modal{max-width:640px;max-height:80vh;overflow-y:auto}
+  .article-modal .atag{font-size:12.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+  .article-modal h2{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2}
+  .article-modal .ameta{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .article-modal h4{font-size:16px;font-weight:700;margin:22px 0 8px;letter-spacing:-.01em}
+  .article-modal p{font-size:15px;line-height:1.7;color:#3c4148;margin-bottom:14px}
+  .article-modal ul{margin:0 0 14px 18px;color:#3c4148;font-size:15px;line-height:1.7}
+
+  /* ---------- Portfolio modal ---------- */
+  .portfolio-modal{max-width:760px;max-height:82vh;overflow-y:auto}
+  .pf-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .pf-filter{background:#f3f5f7;border:none;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;color:#5b6168;cursor:pointer;transition:.15s}
+  .pf-filter.active{background:var(--ink);color:#fff}
+  .pf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .pf-card{border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:7px}
+  .pf-card .pf-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px}
+  .pf-card .pf-tag{font-size:11.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.03em}
+  .pf-card h4{font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+  .pf-card p{font-size:13px;color:var(--muted);line-height:1.5}
+  .pf-demo-btn{align-self:flex-start;background:#f3f5f7;border:none;border-radius:10px;padding:8px 14px;font-size:12.5px;font-weight:600;color:#3c4148;cursor:pointer;margin-top:2px}
+  .pf-demo-btn:hover{background:#eceef1}
+  .pf-demo-out{font-size:12px}
+  .pf-demo-out table{width:100%;border-collapse:collapse;margin-top:4px}
+  .pf-demo-out td{padding:5px 4px;border-bottom:1px solid #eef0f2;color:#3c4148}
+  .pf-demo-spin{display:inline-block;width:12px;height:12px;border:2px solid #d8dbe0;border-top-color:var(--blue);border-radius:50%;animation:pfspin .7s linear infinite;margin-right:6px;vertical-align:-1px}
+  @keyframes pfspin{to{transform:rotate(360deg)}}
+  @media(max-width:560px){.pf-grid{grid-template-columns:1fr}}
+
+  /* ---------- Form error ---------- */
+  .form-err{display:none;color:#e5484d;font-size:13px;margin:-6px 0 14px}
+  .form-err.show{display:block}
+
+  /* ---------- Live chat widget ---------- */
+  .chat-bubble{position:fixed;bottom:88px;right:24px;z-index:40;width:54px;height:54px;border-radius:50%;background:var(--blue);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 14px 32px rgba(20,25,40,.28);transition:.2s}
+  .chat-bubble:hover{transform:translateY(-2px)}
+  .chat-bubble svg{width:24px;height:24px}
+  .chat-panel{position:fixed;bottom:152px;right:24px;z-index:41;width:320px;max-height:440px;background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(20,25,40,.25);display:none;flex-direction:column;overflow:hidden}
+  .chat-panel.show{display:flex}
+  .chat-head{background:var(--ink);color:#fff;padding:14px 16px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;flex:none}
+  .chat-head button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;opacity:.75}
+  .chat-log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:#f6f7f9;min-height:200px}
+  .chat-msg{max-width:80%;padding:8px 12px;border-radius:12px;font-size:13.5px;line-height:1.4;word-break:break-word}
+  .chat-msg.visitor{align-self:flex-end;background:var(--blue);color:#fff}
+  .chat-msg.admin{align-self:flex-start;background:#fff;border:1px solid var(--line)}
+  .chat-empty{color:var(--muted);font-size:12.5px;text-align:center;margin:auto;padding:0 10px}
+  .chat-name-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);flex:none}
+  .chat-name-row input{flex:1;padding:9px 11px;border:1px solid var(--line);border-radius:9px;font-size:13.5px}
+  .chat-name-row button,.chat-input-row button{background:var(--ink);color:#fff;border:none;border-radius:9px;padding:9px 14px;font-weight:600;cursor:pointer;font-size:13px}
+  .chat-input-row{display:none;gap:8px;padding:12px;border-top:1px solid var(--line);flex:none}
+  .chat-input-row input{flex:1;padding:9px 11px;border:1px solid var(--line);border-radius:9px;font-size:13.5px}
+  @media(max-width:560px){.chat-panel{right:12px;left:12px;width:auto;bottom:148px}.chat-bubble{right:16px}}
+
+  @media(max-width:980px){
+    .wrap{padding:0 22px}
+    .nav-links{display:none}
+    .hero{grid-template-columns:1fr;gap:40px}
+    .laptop-stage{justify-self:center;max-width:560px}
+    .laptop{transform:none}
+    .hero h1{font-size:38px}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:16px}
+    .sec-head h2{font-size:28px}
+    .services{grid-template-columns:repeat(2,1fr)}
+    .cases{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr;gap:34px}
+    .tgrid,.bgrid{grid-template-columns:1fr}
+    .cta{padding:48px 28px}
+    .cta h2{font-size:28px}
+    .fgrid{grid-template-columns:1fr 1fr;gap:30px}
+  }
+  @media(max-width:560px){
+    .services{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .hero h1{font-size:32px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <div class="logo" data-scroll="#top">Nyx Labs<sup>+</sup></div>
+      <nav class="nav-links">
+        <a data-scroll="#services">Услуги</a><a data-scroll="#cases">Кейсы</a><a data-scroll="#process">Процесс</a>
+        <a data-scroll="#about">О себе</a><a data-scroll="#blog">Блог</a><a data-scroll="#faq">Вопросы</a><a data-scroll="#contacts">Контакты</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn-pill" data-modal>Обсудить проект</button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a data-scroll="#services">Услуги</a><a data-scroll="#cases">Кейсы</a><a data-scroll="#process">Процесс</a>
+      <a data-scroll="#about">О себе</a><a data-scroll="#blog">Блог</a><a data-scroll="#faq">Вопросы</a><a data-scroll="#contacts">Контакты</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="wrap hero" id="top">
+  <div class="hero-left">
+    <span class="badge"><span class="dot"></span>Сайты · боты · дизайн · AI</span>
+    <h1>Создаём сайты, ботов и AI-инструменты, которые ускоряют ваш бизнес</h1>
+    <p class="lead">Сайты, дизайн карточек и графики, программы и Telegram-боты, AI-автоматизация и парсеры данных — от идеи до запуска. Без раздутых смет и лишних посредников.</p>
+    <div class="hero-actions">
+      <button class="btn btn-dark btn-arrow" data-modal>Обсудить проект <span>→</span></button>
+      <button class="btn btn-light" data-scroll="#cases">Смотреть кейсы</button>
+    </div>
+    <div class="proof">
+      <div class="stackbadges">
+        <span class="stackchip">C++</span><span class="stackchip">Python</span><span class="stackchip">GPT/Gemini</span><span class="stackchip">Telegram</span>
+      </div>
+      <div><b>Берём задачу под ключ — от идеи до запуска</b><small>Без агентского раздувания смет</small></div>
+    </div>
+  </div>
+
+  <!-- LAPTOP -->
+  <div class="laptop-stage">
+    <div class="laptop">
+      <div class="screen">
+        <div class="camera"></div>
+        <div class="scr-inner">
+          <div class="dash">
+            <aside class="dash-side">
+              <div class="dash-logo">Nyx Labs<sup>+</sup></div>
+              <ul>
+                <li class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Главная</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>Проекты</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Аналитика</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>Сообщения</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1l-.3-2.5h-4l-.3 2.5a7 7 0 0 0-1.7 1l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.3 2.5h4l.3-2.5a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5a7 7 0 0 0 .1-1Z"/></svg>Настройки</li>
+              </ul>
+            </aside>
+            <main class="dash-main">
+              <div class="dash-top">
+                <span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+                <span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+                <div class="av-fallback">А</div>
+              </div>
+              <div class="dash-hi">Добро пожаловать, Артём!</div>
+              <div class="stats">
+                <div class="stat"><b>12</b><small>Проектов в работе</small></div>
+                <div class="stat"><b>8</b><small>Завершённые проекты</small></div>
+                <div class="stat"><b>24/7</b><small>Поддержка</small></div>
+                <div class="stat"><b>97%</b><small>Довольных клиентов</small></div>
+              </div>
+              <div class="panel-row">
+                <div class="act">
+                  <div class="t">Активность</div>
+                  <div class="chart">
+                    <div class="yax"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+                    <div class="plot">
+                      <div class="tip">78</div>
+                      <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="#2f6bff" stop-opacity=".20"/>
+                          <stop offset="1" stop-color="#2f6bff" stop-opacity="0"/>
+                        </linearGradient></defs>
+                        <path d="M0,62 C18,54 26,40 40,46 C56,53 60,20 80,26 C98,32 100,58 120,52 C140,46 146,14 168,24 C184,31 192,30 200,34 L200,80 L0,80 Z" fill="url(#g)"/>
+                        <path d="M0,62 C18,54 26,40 40,46 C56,53 60,20 80,26 C98,32 100,58 120,52 C140,46 146,14 168,24 C184,31 192,30 200,34" fill="none" stroke="#2f6bff" stroke-width="2"/>
+                        <circle cx="80" cy="26" r="2.6" fill="#2f6bff" stroke="#fff" stroke-width="1.2"/>
+                      </svg>
+                      <div class="xax"><span>Янв</span><span>Фев</span><span>Мар</span><span>Апр</span><span>Май</span><span>Июн</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="recent">
+                  <div class="rh"><b>Последние проекты</b><a>Все проекты</a></div>
+                  <div class="ritem"><div class="ri-ph" style="background:#2f6bff">С</div><div class="rt"><b>Интернет-магазин</b><small>Разработка сайта</small></div><span class="rar">›</span></div>
+                  <div class="ritem"><div class="ri-ph" style="background:#6c5cff">Б</div><div class="rt"><b>Telegram-бот</b><small>Бот автоматизации</small></div><span class="rar">›</span></div>
+                  <div class="ritem"><div class="ri-ph" style="background:#16b894">A</div><div class="rt"><b>AI-ассистент</b><small>Интеграция GPT</small></div><span class="rar">›</span></div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+      <div class="notch"></div>
+      <div class="base"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHEET -->
+<div class="sheet">
+  <!-- SERVICES -->
+  <section class="wrap sec" id="services">
+    <span class="badge-grey">Наши услуги</span>
+    <div class="sec-head">
+      <h2>Комплексная разработка для вашего бизнеса</h2>
+      <p class="desc">Делаем современные и надёжные решения, которые помогают автоматизировать процессы и увеличивать прибыль.</p>
+    </div>
+    <div class="services">
+      <div class="scard">
+        <div class="sicon g-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+        <h3>Создание сайтов</h3>
+        <p>Лендинги, сайты-визитки и интернет-магазины — от макета до запуска на хостинге.</p>
+        <button class="more" data-info="sites">Подробнее →</button>
+      </div>
+      <div class="scard">
+        <div class="sicon g-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 14l4-4 3 3 5-5 4 4"/></svg></div>
+        <h3>Дизайн карточек и графики</h3>
+        <p>Карточки товаров, баннеры и графика для соцсетей, маркетплейсов и презентаций.</p>
+        <button class="more" data-info="cards">Подробнее →</button>
+      </div>
+      <div class="scard">
+        <div class="sicon g-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
+        <h3>ПО и Telegram-боты</h3>
+        <p>Программы, скрипты и боты для автоматизации продаж, поддержки и внутренних процессов.</p>
+        <button class="more" data-info="software">Подробнее →</button>
+      </div>
+      <div class="scard">
+        <div class="sicon g-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M19 14l.8 2.2 2.2.8-2.2.8L19 20l-.8-2.2-2.2-.8 2.2-.8L19 14Z"/></svg></div>
+        <h3>AI-интеграции и автоматизация</h3>
+        <p>Подключение GPT/Gemini к вашим процессам: ответы клиентам, генерация контента, отчёты.</p>
+        <button class="more" data-info="ai">Подробнее →</button>
+      </div>
+      <div class="scard">
+        <div class="sicon g-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="6"/></svg></div>
+        <h3>Парсеры и сбор данных</h3>
+        <p>Автоматический сбор цен, объявлений и любых данных с сайтов в таблицу или базу.</p>
+        <button class="more" data-info="parsers">Подробнее →</button>
+      </div>
+      <div class="scard">
+        <div class="sicon g-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Аналитика и ML-модели</h3>
+        <p>Дашборды, прогнозы и модели на основе ваших данных — от графика до рабочей модели.</p>
+        <button class="more" data-info="analytics">Подробнее →</button>
+         <div class="scard">
+        <div class="sicon g-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Другие задачи</h3>
+        <p>Создание приложений, игр, видеомонтажа и других уникальных решений.(Берем на свое усмотрение)</p>
+        <button class="more" data-info="analytics">Подробнее →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="wrap sec" id="cases">
+    <span class="badge-grey">Кейсы</span>
+    <div class="sec-head">
+      <h2>Реальные проекты, которые мы сделали</h2>
+      <button class="btn-pill" style="white-space:nowrap;align-self:center" id="openPortfolio">Смотреть все проекты</button>
+    </div>
+    <div class="cases">
+      <!-- ЗАМЕНИ: вставь сюда скрин главного экрана своего сайта.
+           Как: убери <div class="cimg cimg-1">...</div> и поставь
+           <div class="cimg"><img src="screenshot1.jpg" style="width:100%;height:100%;object-fit:cover"></div> -->
+      <div class="ccard">
+        <div class="cimg cimg-1">
+          <div class="mini"><div class="s"></div><div class="b"><div class="donut"></div><div class="bar"></div><div class="bar" style="width:50%"></div><div class="bar" style="width:60%"></div></div></div>
+          <span class="ctag">Сайт</span>
+        </div>
+        <h3>[Название твоего сайта]</h3>
+        <p>[Что сделал: например — лендинг с формой заявки и интеграцией оплаты].</p>
+      </div>
+      <!-- ЗАМЕНИ: вставь сюда скрин чата с твоим Telegram-ботом (просто скрин телефона/Telegram) -->
+      <div class="ccard">
+        <div class="cimg cimg-2">
+          <div class="phone p1"><div class="b" style="top:20px"></div><div class="b" style="top:40px;background:#33363d"></div><div class="b" style="top:60px;background:#33363d;width:60%"></div></div>
+          <div class="phone p2"><div class="b" style="top:30px"></div><div class="b" style="top:50px;background:#33363d"></div></div>
+          <span class="ctag">Telegram-бот</span>
+        </div>
+        <h3>[Название твоего бота]</h3>
+        <p>[Что делает бот: например — принимает заявки и отвечает клиентам через GPT].</p>
+      </div>
+      <!-- ЗАМЕНИ: третий реальный проект — сайт, карточки или парсер -->
+      <div class="ccard">
+        <div class="cimg cimg-3"><div class="wave"></div><span class="ctag">Дизайн / AI</span></div>
+        <h3>[Третий проект]</h3>
+        <p>[Что сделал и какой результат получился].</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="wrap sec pad-bottom" id="process">
+    <span class="badge-grey">Процесс работы</span>
+    <div class="sec-head"><h2>Прозрачный процесс и чёткие этапы</h2></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h4>Анализ и планирование</h4><p>Изучаем задачу, анализируем бизнес и предлагаем решение.</p></div>
+      <div class="step"><div class="num">02</div><h4>Проектирование</h4><p>Создаём прототип и согласуем структуру будущего продукта.</p></div>
+      <div class="step"><div class="num">03</div><h4>Разработка</h4><p>Пишем чистый код, тестируем и реализуем весь функционал.</p></div>
+      <div class="step"><div class="num">04</div><h4>Тестирование</h4><p>Проверяем качество, производительность и безопасность решения.</p></div>
+      <div class="step"><div class="num">05</div><h4>Запуск и поддержка</h4><p>Запускаем проект и обеспечиваем поддержку после релиза.</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="wrap sec" id="about">
+    <span class="badge-grey">О себе</span>
+    <div class="about" style="margin-top:34px">
+      <div class="reveal">
+        <h2 style="font-size:36px;line-height:1.12;letter-spacing:-.025em;font-weight:800;max-width:460px;margin-bottom:18px">Команда, которая отвечает за результат</h2>
+        <p style="font-size:15.5px;color:var(--muted);max-width:480px">Nyx Labs — небольшая студия разработки. Берём на себя весь цикл: код, дизайн и запуск — без раздутых смет и лишних посредников.</p>
+        <ul class="checklist">
+          <li><span class="ck">✓</span>Прозрачная работа и честные сроки</li>
+          <li><span class="ck">✓</span>Быстрая связь на каждом этапе</li>
+          <li><span class="ck">✓</span>Поддержка и доработки после запуска</li>
+          <li><span class="ck">✓</span>Стек: HTML/CSS/JS, Python, C++, AI (GPT/Gemini) ASM</li>
+        </ul>
+      </div>
+      <div class="about-grid reveal">
+        <div class="mcard"><div class="big">Быстро</div><p>отвечаем в течение дня</p></div>
+        <div class="mcard dark"><div class="big">Лично</div><p>без менеджеров-прокладок</p></div>
+        <div class="mcard dark"><div class="big">Гибко</div><p>подстраиваемся под задачу</p></div>
+        <div class="mcard"><div class="big">Честно</div><p>без фейковых гарантий</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="wrap sec">
+    <span class="badge-grey">Почему мы</span>
+    <div class="sec-head">
+      <h2>Почему стоит работать с нами</h2>
+      <button class="btn-pill" style="white-space:nowrap;align-self:center" data-modal>Обсудить проект</button>
+    </div>
+    <div class="tgrid">
+      <!-- Когда появится первый настоящий отзыв от живого клиента — замени любую из этих
+           карточек на .tcard с реальной цитатой, именем и фото человека -->
+      <div class="tcard reveal">
+        <div class="sicon g-blue" style="margin-bottom:4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg></div>
+        <p style="font-weight:700;color:#15181d;font-size:16px">Прямой контакт с разработчиком</p>
+        <p>Никаких лишних менеджеров и пересказа «глухого телефона» — обсуждаете задачу напрямую с разработчиком.</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="sicon g-violet" style="margin-bottom:4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+        <p style="font-weight:700;color:#15181d;font-size:16px">Гибкий и быстрый процесс</p>
+        <p>Без раздутой команды и согласований — от идеи до рабочей версии в разумные сроки.</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="sicon g-teal" style="margin-bottom:4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg></div>
+        <p style="font-weight:700;color:#15181d;font-size:16px">Честные цены без накруток</p>
+        <p>Платите за реальную работу, а не за бренд агентства и офис в центре города.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="wrap sec pad-bottom" id="blog">
+    <span class="badge-grey">Блог</span>
+    <div class="sec-head">
+      <h2>Полезные статьи и инсайты</h2>
+    </div>
+    <div class="bgrid">
+      <article class="bcard reveal" data-article="stack2026">
+        <div class="cover bc1"><span>Разработка</span></div>
+        <div class="body"><small>12 июня 2026 · 5 мин</small><h4>Как выбрать стек для веб-приложения в 2026</h4><p>Когда для сайта достаточно HTML/CSS/JS, когда нужен backend на Python, а когда — AI-интеграция через GPT/Gemini. Разбираем стек разработки сайта без переусложнения.</p></div>
+      </article>
+      <article class="bcard reveal" data-article="botscenarios">
+        <div class="cover bc2"><span>Автоматизация</span></div>
+        <div class="body"><small>5 июня 2026 · 7 мин</small><h4>Telegram-боты для бизнеса: 7 рабочих сценариев</h4><p>Приём заявок, FAQ-бот с GPT, уведомления о заказе, запись и бронирование — реальные сценарии разработки Telegram-бота, которые экономят время и деньги компании.</p></div>
+      </article>
+      <article class="bcard reveal" data-article="gptstart">
+        <div class="cover bc3"><span>AI</span></div>
+        <div class="body"><small>28 мая 2026 · 6 мин</small><h4>Внедряем GPT в продукт: с чего начать</h4><p>Пошаговый гайд по AI-интеграции в продукт: как сузить задачу, выбрать модель GPT или Gemini и написать системный промпт без лишних затрат.</p></div>
+      </article>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section class="wrap sec pad-bottom" id="faq">
+    <span class="badge-grey">Вопросы</span>
+    <div class="sec-head"><h2>Частые вопросы</h2></div>
+    <div class="faq">
+      <details class="faq-item">
+        <summary>Сколько времени занимает сайт или бот?<span class="arrow">+</span></summary>
+        <p>Лендинг или сайт-визитка — обычно до недели. Интернет-магазин, бот со сложной логикой или AI-интеграция — от недели(Может быть и меньше). Точный срок называем после короткого обсуждения задачи.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Как происходит оплата?<span class="arrow">+</span></summary>
+        <p>Делим проект на этапы: предоплата перед началом, остаток — после сдачи каждого этапа или всего проекта. Сумму и порядок фиксируем заранее, без скрытых доплат.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Что если результат не понравится?<span class="arrow">+</span></summary>
+        <p>На этапе проектирования согласуем макет/структуру, прежде чем переходить к коду — это снимает большинство сюрпризов. После запуска вносим правки в рамках оговорённого объёма работ.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Можно доработать существующий сайт или бот другого разработчика?<span class="arrow">+</span></summary>
+        <p>Да, разбираем чужой код, оцениваем объём работ и дорабатываем — не обязательно начинать с нуля.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Что нужно от меня, чтобы начать?<span class="arrow">+</span></summary>
+        <p>Коротко опишите задачу через форму ниже или в Telegram — обсудим детали, сроки и стоимость, и только потом приступаем к работе.</p>
+      </details>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<div class="wrap cta-wrap">
+  <div class="cta reveal">
+    <div class="inner">
+      <h2>Готовы ускорить ваш бизнес с помощью технологий?</h2>
+      <p>Расскажите о задаче — предложим решение и оценим сроки бесплатно.</p>
+      <div class="cta-actions">
+        <button class="btn btn-white" data-modal>Обсудить проект</button>
+        <button class="btn btn-ghost" data-scroll="#cases">Смотреть кейсы</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo">Nyx Labs<sup>+</sup></div>
+        <p class="fdesc">Создаём сайты, дизайн, ботов и AI-инструменты под ключ — от идеи до запуска.</p>
+        <div class="socials">
+          <a aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13.5l-4.8-1.5c-1-.3-1-.99.2-1.46L20.7 3c.86-.32 1.6.19 1.2 1.3Z"/></svg></a>
+          <a aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.2-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.4 2.6 1.6.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
+          <a aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>Услуги</h5>
+        <a data-scroll="#services">Сайты</a>
+        <a data-scroll="#services">Дизайн карточек</a>
+        <a data-scroll="#services">ПО и боты</a>
+        <a data-scroll="#services">AI и парсеры</a>
+      </div>
+      <div class="fcol">
+        <h5>Компания</h5>
+        <a data-scroll="#about">О себе</a>
+        <a data-scroll="#cases">Кейсы</a>
+        <a data-scroll="#process">Процесс</a>
+        <a data-scroll="#blog">Блог</a>
+      </div>
+      <div class="fcol fcontact">
+        <h5>Контакты</h5>
+        <!-- ЗАМЕНИ на свои реальные данные -->
+        <div><b>Email:</b> ТВОЙ_EMAIL@example.com</div>
+        <div><b>Телефон:</b> +7 (___) ___-__-__</div>
+        <div><b>Telegram:</b> @ТВОЙ_НИК</div>
+        <button class="btn btn-dark" style="margin-top:8px;background:var(--blue)" data-modal>Оставить заявку</button>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 Nyx Labs. Все права защищены.</span>
+      <span>Политика конфиденциальности · Договор оферты</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING QUICK CONTACT -->
+<button class="float-cta" data-modal aria-label="Обсудить проект">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13.5l-4.8-1.5c-1-.3-1-.99.2-1.46L20.7 3c.86-.32 1.6.19 1.2 1.3Z"/></svg>
+  <span>Обсудить проект</span>
+</button>
+
+<!-- LIVE CHAT WIDGET -->
+<button class="chat-bubble" id="chatBubbleBtn" aria-label="Открыть чат">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head"><span>Написать нам</span><button id="chatCloseBtn" aria-label="Закрыть">×</button></div>
+  <div class="chat-log" id="chatLog"><div class="chat-empty">Напишите сообщение — обычно отвечаем в течение рабочего дня.</div></div>
+  <div class="chat-name-row" id="chatNameRow">
+    <input id="chatNameInput" placeholder="Ваше имя, чтобы начать">
+    <button id="chatStartBtn">Начать</button>
+  </div>
+  <div class="chat-input-row" id="chatInputRow">
+    <input id="chatTextInput" placeholder="Сообщение…">
+    <button id="chatSendBtn">→</button>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL -->
+<div class="overlay" id="articleOverlay">
+  <div class="modal modal-wrap article-modal">
+    <button class="modal-close" id="articleClose" aria-label="Закрыть">×</button>
+    <div id="articleContent"></div>
+  </div>
+</div>
+
+<!-- PORTFOLIO MODAL -->
+<div class="overlay" id="pfOverlay">
+  <div class="modal modal-wrap portfolio-modal">
+    <button class="modal-close" id="pfClose" aria-label="Закрыть">×</button>
+    <h3 style="font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px">Все проекты</h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px">Выберите направление, чтобы посмотреть похожие работы. Список пополняется.</p>
+    <div class="pf-filters" id="pfFilters">
+      <button class="pf-filter active" data-filter="all">Все</button>
+      <button class="pf-filter" data-filter="sites">Сайты</button>
+      <button class="pf-filter" data-filter="cards">Карточки</button>
+      <button class="pf-filter" data-filter="software">ПО и боты</button>
+      <button class="pf-filter" data-filter="ai">AI</button>
+      <button class="pf-filter" data-filter="parsers">Парсеры</button>
+      <button class="pf-filter" data-filter="analytics">Аналитика</button>
+    </div>
+    <div class="pf-grid" id="pfGrid"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal modal-wrap">
+    <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+    <div id="modalForm">
+      <h3>Обсудить проект</h3>
+      <p class="sub">Оставьте контакты — свяжемся в течение рабочего дня.</p>
+      <p class="form-err" id="formErr">Не получилось отправить. Напишите напрямую в Telegram — ссылка в футере.</p>
+      <form id="contactForm">
+        <label>Имя</label>
+        <input type="text" name="name" placeholder="Как к вам обращаться" required />
+        <label>Как с вами связаться (заполните хотя бы одно)</label>
+        <input type="text" name="telegram" placeholder="Telegram: @username" />
+        <input type="text" name="phone" placeholder="Телефон: +7 ..." style="margin-top:8px" />
+        <input type="email" name="email" placeholder="Email: you@example.com" style="margin-top:8px" />
+        <label style="margin-top:10px">Задача</label>
+        <textarea name="message" placeholder="Кратко опишите проект"></textarea>
+        <p class="form-err" id="formErr2">Укажите хотя бы один способ связи — Telegram, телефон или email.</p>
+        <div class="row"><button type="submit" class="btn btn-dark">Отправить заявку</button></div>
+      </form>
+    </div>
+    <div class="ok-msg" id="okMsg">
+      <div class="check">✓</div>
+      <h3>Заявка отправлена!</h3>
+      <p class="sub">Спасибо, мы скоро свяжемся с вами.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // smooth scroll for any [data-scroll] element
+  document.querySelectorAll('[data-scroll]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const t=document.querySelector(el.getAttribute('data-scroll'));
+      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+      mobileMenu.classList.remove('show'); burger.classList.remove('open');
+    });
+  });
+
+  // burger / mobile menu
+  const burger=document.getElementById('burger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',()=>{burger.classList.toggle('open');mobileMenu.classList.toggle('show');});
+
+  // dashboard sidebar active toggle (demo interactivity)
+  document.querySelectorAll('.dash-side li').forEach(li=>{
+    li.addEventListener('click',()=>{
+      document.querySelectorAll('.dash-side li').forEach(x=>x.classList.remove('active'));
+      li.classList.add('active');
+    });
+  });
+
+  // modal
+  const overlay=document.getElementById('overlay');
+  const openModal=()=>{overlay.classList.add('show');document.getElementById('modalForm').style.display='block';document.getElementById('okMsg').classList.remove('show');};
+  const closeModal=()=>overlay.classList.remove('show');
+  document.querySelectorAll('[data-modal]').forEach(b=>b.addEventListener('click',openModal));
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();articleOverlay.classList.remove('show');pfOverlay.classList.remove('show');document.getElementById('chatPanel').classList.remove('show');}});
+  // Адрес твоего backend'а (см. server.py) — после деплоя вставь сюда реальный URL
+  const LEAD_ENDPOINT = 'https://nyx-labsteam-api.onrender.com/api/lead';
+  document.getElementById('contactForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const form=e.target;
+    const submitBtn=form.querySelector('button[type="submit"]');
+    const errEl=document.getElementById('formErr');
+    const errEl2=document.getElementById('formErr2');
+    errEl.classList.remove('show'); errEl2.classList.remove('show');
+    const data=Object.fromEntries(new FormData(form).entries());
+    if(!data.telegram && !data.phone && !data.email){
+      errEl2.classList.add('show');
+      return;
+    }
+    submitBtn.disabled=true; submitBtn.textContent='Отправляем…';
+    try{
+      const res=await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      if(!res.ok) throw new Error('bad response');
+      document.getElementById('modalForm').style.display='none';
+      document.getElementById('okMsg').classList.add('show');
+      form.reset();
+    }catch(err){
+      errEl.classList.add('show');
+    }finally{
+      submitBtn.disabled=false; submitBtn.textContent='Отправить заявку';
+    }
+  });
+
+  // live chat widget
+  const CHAT_ENDPOINT = 'https://nyx-labsteam-api.onrender.com/api/chat';
+  (function(){
+    const bubble=document.getElementById('chatBubbleBtn');
+    const panel=document.getElementById('chatPanel');
+    const closeBtn=document.getElementById('chatCloseBtn');
+    const log=document.getElementById('chatLog');
+    const nameRow=document.getElementById('chatNameRow');
+    const nameInput=document.getElementById('chatNameInput');
+    const startBtn=document.getElementById('chatStartBtn');
+    const inputRow=document.getElementById('chatInputRow');
+    const textInput=document.getElementById('chatTextInput');
+    const sendBtn=document.getElementById('chatSendBtn');
+
+    let sessionId=localStorage.getItem('nyx_chat_session');
+    let visitorName=localStorage.getItem('nyx_chat_name');
+    let lastId=0,poller=null;
+
+    if(!sessionId){
+      sessionId='s_'+Math.random().toString(36).slice(2)+Date.now().toString(36);
+      localStorage.setItem('nyx_chat_session',sessionId);
+    }
+    if(visitorName){nameRow.style.display='none';inputRow.style.display='flex';}
+
+    function addMsg(sender,text){
+      const empty=log.querySelector('.chat-empty'); if(empty) empty.remove();
+      const d=document.createElement('div');
+      d.className='chat-msg '+sender;
+      d.textContent=text;
+      log.appendChild(d);
+      log.scrollTop=log.scrollHeight;
+    }
+    async function poll(){
+      try{
+        const res=await fetch(`${CHAT_ENDPOINT}/poll?session_id=${encodeURIComponent(sessionId)}&after_id=${lastId}`);
+        const d=await res.json();
+        if(d.ok) d.messages.forEach(m=>{addMsg(m.sender,m.text);lastId=m.id;});
+      }catch(e){/* тихо пробуем на следующем тике */}
+    }
+    function startPolling(){ if(!poller){poll();poller=setInterval(poll,4000);} }
+
+    bubble.addEventListener('click',()=>{
+      panel.classList.toggle('show');
+      if(panel.classList.contains('show')) startPolling();
+    });
+    closeBtn.addEventListener('click',()=>panel.classList.remove('show'));
+
+    function startChat(){
+      const v=nameInput.value.trim();
+      if(!v) return;
+      visitorName=v;
+      localStorage.setItem('nyx_chat_name',v);
+      nameRow.style.display='none';
+      inputRow.style.display='flex';
+      textInput.focus();
+    }
+    startBtn.addEventListener('click',startChat);
+    nameInput.addEventListener('keydown',e=>{if(e.key==='Enter')startChat();});
+
+    async function send(){
+      const text=textInput.value.trim();
+      if(!text||!visitorName) return;
+      addMsg('visitor',text);
+      textInput.value='';
+      try{
+        await fetch(`${CHAT_ENDPOINT}/send`,{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({session_id:sessionId,name:visitorName,text})});
+      }catch(e){/* визуально сообщение уже показано, при сбое сети попробует на следующем send */}
+    }
+    sendBtn.addEventListener('click',send);
+    textInput.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
+  })();
+
+  // article modal — каждая статья открывает СВОЙ контент, а не форму заявки
+  const articles = {
+    stack2026: {
+      tag: 'Разработка',
+      meta: '12 июня 2026 · 5 мин',
+      title: 'Как выбрать стек для веб-приложения в 2026',
+      body: `
+        <p>Выбор технологий часто превращают в религиозный спор, хотя на деле всё определяется задачей и бюджетом времени, а не модой на фреймворк.</p>
+        <h4>Если нужен просто сайт</h4>
+        <p>Для лендинга или сайта-визитки чаще всего не нужен сложный фреймворк — обычный HTML/CSS/JS грузится быстрее, проще в поддержке и дешевле в разработке.</p>
+        <h4>Если нужен интернет-магазин или личный кабинет</h4>
+        <p>Когда появляется логика на сервере — заказы, пользователи, платежи — добавляется backend на Python. Здесь важнее правильная структура базы данных, чем конкретный фреймворк.</p>
+        <h4>Если в проекте есть AI</h4>
+        <p>Для интеграции GPT/Gemini ключевое — не модель сама по себе, а то, насколько узко сформулирована задача для неё. Стек вокруг этого обычно простой: backend, который дёргает API модели, и логика проверки ответов.</p>
+        <p>Итог: сложный стек нужен не потому, что он современный, а когда задача реально этого требует.</p>`
+    },
+    botscenarios: {
+      tag: 'Автоматизация',
+      meta: '5 июня 2026 · 7 мин',
+      title: 'Telegram-боты для бизнеса: 7 рабочих сценариев',
+      body: `
+        <p>Бот окупается, когда снимает с человека повторяющуюся задачу. Вот сценарии, которые реально работают:</p>
+        <ul>
+          <li><b>Приём заявок</b> — бот собирает контакты и суть запроса вместо менеджера.</li>
+          <li><b>FAQ-бот с GPT</b> — отвечает на типовые вопросы клиентов без участия человека.</li>
+          <li><b>Статус заказа</b> — уведомления о доставке/готовности без звонков.</li>
+          <li><b>Сбор обратной связи</b> — короткий опрос сразу после покупки.</li>
+          <li><b>Запись и бронирование</b> — выбор слота времени прямо в чате.</li>
+          <li><b>Рассылки</b> — новости и акции без отдельного email-сервиса.</li>
+          <li><b>Внутренний бот для команды</b> — напоминания, отчёты, чек-листы.</li>
+        </ul>
+        <p>Хороший бот не пытается заменить человека во всём — он закрывает один конкретный повторяющийся процесс.</p>`
+    },
+    gptstart: {
+      tag: 'AI',
+      meta: '28 мая 2026 · 6 мин',
+      title: 'Внедряем GPT в продукт: с чего начать',
+      body: `
+        <p>Самая частая ошибка — пытаться подключить AI «вообще ко всему» сразу. Рабочий путь короче:</p>
+        <ul>
+          <li><b>Сузить задачу</b> — выбрать один конкретный процесс (ответы на вопросы, генерация описаний и т.д).</li>
+          <li><b>Выбрать модель</b> — GPT/Gemini через API, без необходимости обучать свою модель с нуля.</li>
+          <li><b>Написать системный промпт</b> — чётко описать роль, тон и границы того, что модель может отвечать.</li>
+          <li><b>Ограничить функционал</b> — заранее решить, что бот не должен делать, и проверить это тестами.</li>
+          <li><b>Протестировать на реальных вопросах</b> — не на придуманных, а на тех, что реально пишут клиенты.</li>
+          <li><b>Мониторить и дообучать промпт</b> — после запуска регулярно смотреть, где модель ошибается, и поправлять инструкцию.</li>
+        </ul>
+        <p>AI-слой почти всегда проще, чем кажется — сложность обычно в правильной формулировке задачи, а не в самой модели.</p>`
+    }
+  };
+  const articleOverlay=document.getElementById('articleOverlay');
+  const articleContent=document.getElementById('articleContent');
+  document.querySelectorAll('[data-article]').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const a=articles[card.getAttribute('data-article')];
+      if(!a) return;
+      articleContent.innerHTML=`<div class="atag">${a.tag}</div><h2>${a.title}</h2><div class="ameta">${a.meta}</div>${a.body}`;
+      articleOverlay.classList.add('show');
+      articleContent.scrollTop=0;
+    });
+  });
+  document.getElementById('articleClose').addEventListener('click',()=>articleOverlay.classList.remove('show'));
+  articleOverlay.addEventListener('click',e=>{if(e.target===articleOverlay)articleOverlay.classList.remove('show');});
+
+  // portfolio — "Подробнее" у услуг и "Смотреть все проекты" в Кейсах
+  // ведут сюда. Добавляй новые проекты прямо в этот массив по мере работы.
+  const projects=[
+    {cat:'sites',tag:'Сайты',title:'[Название сайта №1]',desc:'[Что сделал: например — лендинг с формой заявки].',color:'#2f6bff'},
+    {cat:'sites',tag:'Сайты',title:'[Название сайта №2]',desc:'[Краткое описание проекта].',color:'#2f6bff'},
+    {cat:'cards',tag:'Карточки',title:'[Карточки для...]',desc:'[Для какого магазина/соцсети и что включало].',color:'#ff4d7e'},
+    {cat:'software',tag:'ПО и боты',title:'[Название бота/программы]',desc:'[Что делает и для кого].',color:'#6c5cff'},
+    {cat:'ai',tag:'AI',title:'[AI-интеграция]',desc:'[Какую задачу решает GPT/Gemini в проекте].',color:'#16b894'},
+    {cat:'parsers',tag:'Парсеры',title:'[Парсер цен/объявлений]',desc:'Собирает данные с сайтов по расписанию и складывает в таблицу или базу.',color:'#ff8a00',demo:true},
+    {cat:'analytics',tag:'Аналитика',title:'[Дашборд / прогноз]',desc:'[Какие данные анализирует и что показывает].',color:'#4f93ff'}
+  ];
+  const pfOverlay=document.getElementById('pfOverlay');
+  const pfGrid=document.getElementById('pfGrid');
+  const pfFilters=document.getElementById('pfFilters');
+  function runParserDemo(e){
+    const btn=e.currentTarget;
+    const out=btn.nextElementSibling;
+    btn.disabled=true;
+    out.innerHTML='<span class="pf-demo-spin"></span>Собираем данные…';
+    setTimeout(()=>{
+      out.innerHTML=`<table>
+        <tr><td>Товар A</td><td>1 290 ₽</td><td>site-a.ru</td></tr>
+        <tr><td>Товар B</td><td>2 450 ₽</td><td>site-b.ru</td></tr>
+        <tr><td>Товар C</td><td>980 ₽</td><td>site-c.ru</td></tr>
+      </table><p style="margin-top:6px;color:var(--muted);font-size:11.5px">Демо-пример. Для реального проекта подключаем нужные сайты и поля.</p>`;
+      btn.disabled=false; btn.textContent='Запустить ещё раз';
+    },1100);
+  }
+  function renderProjects(filter){
+    pfGrid.innerHTML=projects.filter(p=>filter==='all'||p.cat===filter).map(p=>`
+      <div class="pf-card">
+        <div class="pf-icon" style="background:${p.color}">${p.tag.charAt(0)}</div>
+        <div class="pf-tag">${p.tag}</div>
+        <h4>${p.title}</h4>
+        <p>${p.desc}</p>
+        ${p.demo?'<button class="pf-demo-btn" data-demo>Показать демо парсинга</button><div class="pf-demo-out"></div>':''}
+      </div>`).join('');
+    pfGrid.querySelectorAll('[data-demo]').forEach(b=>b.addEventListener('click',runParserDemo));
+  }
+  function openPortfolio(filter){
+    pfOverlay.classList.add('show');
+    pfFilters.querySelectorAll('.pf-filter').forEach(f=>f.classList.toggle('active',f.getAttribute('data-filter')===filter));
+    renderProjects(filter);
+  }
+  document.querySelectorAll('[data-info]').forEach(btn=>{
+    btn.addEventListener('click',()=>openPortfolio(btn.getAttribute('data-info')));
+  });
+  document.getElementById('openPortfolio').addEventListener('click',()=>openPortfolio('all'));
+  pfFilters.querySelectorAll('.pf-filter').forEach(f=>{
+    f.addEventListener('click',()=>{
+      pfFilters.querySelectorAll('.pf-filter').forEach(x=>x.classList.remove('active'));
+      f.classList.add('active');
+      renderProjects(f.getAttribute('data-filter'));
+    });
+  });
+  document.getElementById('pfClose').addEventListener('click',()=>pfOverlay.classList.remove('show'));
+  pfOverlay.addEventListener('click',e=>{if(e.target===pfOverlay)pfOverlay.classList.remove('show');});
+
+  // active nav link highlighting on scroll
+  const navLinks=document.querySelectorAll('.nav-links a[data-scroll]');
+  const navSections=[...navLinks].map(a=>document.querySelector(a.getAttribute('data-scroll'))).filter(Boolean);
+  const navObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        navLinks.forEach(a=>a.classList.remove('active'));
+        const match=document.querySelector(`.nav-links a[data-scroll="#${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  navSections.forEach(s=>navObserver.observe(s));
+
+  // scroll-reveal animations
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
