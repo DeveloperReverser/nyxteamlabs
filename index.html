@@ -179,6 +179,7 @@
   .g-sky{background:linear-gradient(150deg,#4f93ff,#2f6bff)}
   .g-amber{background:linear-gradient(150deg,#ffb648,#ff8a00)}
   .g-rose{background:linear-gradient(150deg,#ff7aa8,#ff4d7e)}
+  .g-slate{background:linear-gradient(150deg,#8b94a3,#5b6472)}
   .scard h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
   .scard p{font-size:13.5px;color:var(--muted);margin-bottom:18px}
   .more{font-size:13.5px;font-weight:600;color:var(--ink);display:inline-flex;gap:7px;align-items:center;cursor:pointer;background:none;border:none;padding:0;transition:.15s}
@@ -367,12 +368,15 @@
   .chat-bubble svg{width:24px;height:24px}
   .chat-panel{position:fixed;bottom:152px;right:24px;z-index:41;width:320px;max-height:440px;background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(20,25,40,.25);display:none;flex-direction:column;overflow:hidden}
   .chat-panel.show{display:flex}
-  .chat-head{background:var(--ink);color:#fff;padding:14px 16px;font-weight:700;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;flex:none}
+  .chat-head{background:var(--ink);color:#fff;padding:14px 16px;font-weight:700;font-size:14.5px;display:flex;flex-direction:column;gap:2px;flex:none}
+  .chat-head .row{display:flex;justify-content:space-between;align-items:center}
+  .chat-head small{font-weight:500;font-size:11.5px;color:#9aa0a6}
   .chat-head button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;opacity:.75}
   .chat-log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:#f6f7f9;min-height:200px}
   .chat-msg{max-width:80%;padding:8px 12px;border-radius:12px;font-size:13.5px;line-height:1.4;word-break:break-word}
   .chat-msg.visitor{align-self:flex-end;background:var(--blue);color:#fff}
   .chat-msg.admin{align-self:flex-start;background:#fff;border:1px solid var(--line)}
+  .chat-msg.system{align-self:center;background:#eef0f2;color:#5b6168;font-size:12px;text-align:center;max-width:90%}
   .chat-empty{color:var(--muted);font-size:12.5px;text-align:center;margin:auto;padding:0 10px}
   .chat-name-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);flex:none}
   .chat-name-row input{flex:1;padding:9px 11px;border:1px solid var(--line);border-radius:9px;font-size:13.5px}
@@ -559,11 +563,12 @@
         <h3>Аналитика и ML-модели</h3>
         <p>Дашборды, прогнозы и модели на основе ваших данных — от графика до рабочей модели.</p>
         <button class="more" data-info="analytics">Подробнее →</button>
-         <div class="scard">
-        <div class="sicon g-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+      </div>
+      <div class="scard">
+        <div class="sicon g-slate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
         <h3>Другие задачи</h3>
-        <p>Создание приложений, игр, видеомонтажа и других уникальных решений.(Берем на свое усмотрение)</p>
-        <button class="more" data-info="analytics">Подробнее →</button>
+        <p>Приложения, игры, видеомонтаж и другие нестандартные задачи — рассматриваем индивидуально.</p>
+        <button class="more" data-modal>Обсудить →</button>
       </div>
     </div>
   </section>
@@ -630,7 +635,7 @@
           <li><span class="ck">✓</span>Прозрачная работа и честные сроки</li>
           <li><span class="ck">✓</span>Быстрая связь на каждом этапе</li>
           <li><span class="ck">✓</span>Поддержка и доработки после запуска</li>
-          <li><span class="ck">✓</span>Стек: HTML/CSS/JS, Python, C++, AI (GPT/Gemini) ASM</li>
+          <li><span class="ck">✓</span>Стек: HTML/CSS/JS, Python, C++, ASM, AI (GPT/Gemini)</li>
         </ul>
       </div>
       <div class="about-grid reveal">
@@ -788,7 +793,10 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>
 </button>
 <div class="chat-panel" id="chatPanel">
-  <div class="chat-head"><span>Написать нам</span><button id="chatCloseBtn" aria-label="Закрыть">×</button></div>
+  <div class="chat-head">
+    <div class="row"><span>Написать нам</span><button id="chatCloseBtn" aria-label="Закрыть">×</button></div>
+    <small>Обычно отвечаем в течение рабочего дня</small>
+  </div>
   <div class="chat-log" id="chatLog"><div class="chat-empty">Напишите сообщение — обычно отвечаем в течение рабочего дня.</div></div>
   <div class="chat-name-row" id="chatNameRow">
     <input id="chatNameInput" placeholder="Ваше имя, чтобы начать">
@@ -833,7 +841,7 @@
     <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
     <div id="modalForm">
       <h3>Обсудить проект</h3>
-      <p class="sub">Оставьте контакты — свяжемся в течение рабочего дня.</p>
+      <p class="sub">Заполните хотя бы один способ связи — напишем именно туда, куда укажете.</p>
       <p class="form-err" id="formErr">Не получилось отправить. Напишите напрямую в Telegram — ссылка в футере.</p>
       <form id="contactForm">
         <label>Имя</label>
@@ -850,8 +858,8 @@
     </div>
     <div class="ok-msg" id="okMsg">
       <div class="check">✓</div>
-      <h3>Заявка отправлена!</h3>
-      <p class="sub">Спасибо, мы скоро свяжемся с вами.</p>
+      <h3 id="okTitle">Заявка отправлена!</h3>
+      <p class="sub" id="okSub">Спасибо, мы скоро свяжемся с вами.</p>
     </div>
   </div>
 </div>
@@ -887,7 +895,7 @@
   document.getElementById('modalClose').addEventListener('click',closeModal);
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();articleOverlay.classList.remove('show');pfOverlay.classList.remove('show');document.getElementById('chatPanel').classList.remove('show');}});
-  // Адрес твоего backend'а (см. server.py) — после деплоя вставь сюда реальный URL
+  // Адрес твоего backend'а (см. server.py)
   const LEAD_ENDPOINT = 'https://nyxteamlabs.onrender.com/api/lead';
   document.getElementById('contactForm').addEventListener('submit',async e=>{
     e.preventDefault();
@@ -905,6 +913,17 @@
     try{
       const res=await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
       if(!res.ok) throw new Error('bad response');
+
+      // Говорим клиенту явно, КУДА именно придёт ответ — это и решает
+      // "не знает от кого придёт сообщение"
+      const channels=[];
+      if(data.telegram) channels.push(`в Telegram (${data.telegram})`);
+      if(data.phone) channels.push(`по телефону (${data.phone})`);
+      if(data.email) channels.push(`на почту (${data.email})`);
+      document.getElementById('okTitle').textContent='Заявка отправлена!';
+      document.getElementById('okSub').textContent =
+        'Спасибо, '+(data.name||'')+'! Свяжемся с вами '+channels.join(' или ')+' — обычно в течение рабочего дня.';
+
       document.getElementById('modalForm').style.display='none';
       document.getElementById('okMsg').classList.add('show');
       form.reset();
@@ -931,7 +950,7 @@
 
     let sessionId=localStorage.getItem('nyx_chat_session');
     let visitorName=localStorage.getItem('nyx_chat_name');
-    let lastId=0,poller=null;
+    let lastId=0,poller=null,firstMessageSent=localStorage.getItem('nyx_chat_started')==='1';
 
     if(!sessionId){
       sessionId='s_'+Math.random().toString(36).slice(2)+Date.now().toString(36);
@@ -983,6 +1002,13 @@
         await fetch(`${CHAT_ENDPOINT}/send`,{method:'POST',headers:{'Content-Type':'application/json'},
           body:JSON.stringify({session_id:sessionId,name:visitorName,text})});
       }catch(e){/* визуально сообщение уже показано, при сбое сети попробует на следующем send */}
+
+      // Сразу даём понять, что сообщение реально кому-то ушло — а не пропало в пустоту
+      if(!firstMessageSent){
+        firstMessageSent=true;
+        localStorage.setItem('nyx_chat_started','1');
+        setTimeout(()=>addMsg('system','Сообщение получено. Обычно отвечаем в течение рабочего дня — ответ появится прямо здесь.'),500);
+      }
     }
     sendBtn.addEventListener('click',send);
     textInput.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
