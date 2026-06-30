@@ -345,6 +345,8 @@
   .pf-filter.active{background:var(--ink);color:#fff}
   .pf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
   .pf-card{border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:7px}
+  .pf-thumb{width:calc(100% + 36px);height:120px;margin:-18px -18px 6px;overflow:hidden;border-radius:16px 16px 0 0}
+  .pf-thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .pf-card .pf-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px}
   .pf-card .pf-tag{font-size:11.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.03em}
   .pf-card h4{font-size:15.5px;font-weight:700;letter-spacing:-.01em}
@@ -581,32 +583,20 @@
       <button class="btn-pill" style="white-space:nowrap;align-self:center" id="openPortfolio">Смотреть все проекты</button>
     </div>
     <div class="cases">
-      <!-- ЗАМЕНИ: вставь сюда скрин главного экрана своего сайта.
-           Как: убери <div class="cimg cimg-1">...</div> и поставь
-           <div class="cimg"><img src="screenshot1.jpg" style="width:100%;height:100%;object-fit:cover"></div> -->
       <div class="ccard">
-        <div class="cimg cimg-1">
-          <div class="mini"><div class="s"></div><div class="b"><div class="donut"></div><div class="bar"></div><div class="bar" style="width:50%"></div><div class="bar" style="width:60%"></div></div></div>
-          <span class="ctag">Сайт</span>
-        </div>
-        <h3>[Название твоего сайта]</h3>
-        <p>[Что сделал: например — лендинг с формой заявки и интеграцией оплаты].</p>
+        <div class="cimg"><img src="img/case-card-design.jpg" alt="Карточка товара для маркетплейса" style="width:100%;height:100%;object-fit:cover" loading="lazy"><span class="ctag">Карточки</span></div>
+        <h3>Карточка для маркетплейса</h3>
+        <p>Карточка расчёски с зеркалом для Ozon/Wildberries — акцент на преимущества и сценарии использования.</p>
       </div>
-      <!-- ЗАМЕНИ: вставь сюда скрин чата с твоим Telegram-ботом (просто скрин телефона/Telegram) -->
       <div class="ccard">
-        <div class="cimg cimg-2">
-          <div class="phone p1"><div class="b" style="top:20px"></div><div class="b" style="top:40px;background:#33363d"></div><div class="b" style="top:60px;background:#33363d;width:60%"></div></div>
-          <div class="phone p2"><div class="b" style="top:30px"></div><div class="b" style="top:50px;background:#33363d"></div></div>
-          <span class="ctag">Telegram-бот</span>
-        </div>
-        <h3>[Название твоего бота]</h3>
-        <p>[Что делает бот: например — принимает заявки и отвечает клиентам через GPT].</p>
+        <div class="cimg"><img src="img/case-berserk-bot.png" alt="BERSERK — AI-фитнес-бот" style="width:100%;height:100%;object-fit:cover" loading="lazy"><span class="ctag">ПО и боты</span></div>
+        <h3>BERSERK — AI-фитнес-бот</h3>
+        <p>Telegram-бот с ИИ-тренером: подбор тренировок по группам мышц, история и AI-анализ прогресса.</p>
       </div>
-      <!-- ЗАМЕНИ: третий реальный проект — сайт, карточки или парсер -->
       <div class="ccard">
-        <div class="cimg cimg-3"><div class="wave"></div><span class="ctag">Дизайн / AI</span></div>
-        <h3>[Третий проект]</h3>
-        <p>[Что сделал и какой результат получился].</p>
+        <div class="cimg"><img src="img/case-ozon-parser.png" alt="OZON Parser" style="width:100%;height:100%;object-fit:cover" loading="lazy"><span class="ctag">Парсеры</span></div>
+        <h3>OZON Parser</h3>
+        <p>Парсер каталога Ozon по категориям: ретраи, логирование и выгрузка результатов в CSV.</p>
       </div>
     </div>
   </section>
@@ -1081,13 +1071,13 @@
   // portfolio — "Подробнее" у услуг и "Смотреть все проекты" в Кейсах
   // ведут сюда. Добавляй новые проекты прямо в этот массив по мере работы.
   const projects=[
-    {cat:'sites',tag:'Сайты',title:'[Название сайта №1]',desc:'[Что сделал: например — лендинг с формой заявки].',color:'#2f6bff'},
-    {cat:'sites',tag:'Сайты',title:'[Название сайта №2]',desc:'[Краткое описание проекта].',color:'#2f6bff'},
-    {cat:'cards',tag:'Карточки',title:'[Карточки для...]',desc:'[Для какого магазина/соцсети и что включало].',color:'#ff4d7e'},
-    {cat:'software',tag:'ПО и боты',title:'[Название бота/программы]',desc:'[Что делает и для кого].',color:'#6c5cff'},
-    {cat:'ai',tag:'AI',title:'[AI-интеграция]',desc:'[Какую задачу решает GPT/Gemini в проекте].',color:'#16b894'},
-    {cat:'parsers',tag:'Парсеры',title:'[Парсер цен/объявлений]',desc:'Собирает данные с сайтов по расписанию и складывает в таблицу или базу.',color:'#ff8a00',demo:true},
-    {cat:'analytics',tag:'Аналитика',title:'[Дашборд / прогноз]',desc:'[Какие данные анализирует и что показывает].',color:'#4f93ff'}
+    {cat:'sites',tag:'Сайты',title:'Nyx Labs — сайт студии',desc:'Лендинг с живым чатом, формой заявки и портфолио с фильтрами — сайт, который вы сейчас смотрите.',color:'#2f6bff'},
+    {cat:'cards',tag:'Карточки',title:'Карточка для маркетплейса',desc:'Карточка расчёски с зеркалом для Ozon/Wildberries — структура, акценты на преимущества и аудиторию.',img:'img/case-card-design.jpg'},
+    {cat:'software',tag:'ПО и боты',title:'BERSERK — AI-фитнес-бот',desc:'Telegram-бот с ИИ-тренером: подбор тренировок, история выполненного и AI-анализ прогресса.',img:'img/case-berserk-bot.png'},
+    {cat:'software',tag:'ПО и боты',title:'KWORKPROTEAM — бот поиска заказов',desc:'Мониторит Kwork, FL.ru, Habr Карьера, Alot.pro и Upwork и уведомляет о новых заказах раньше других.',img:'img/case-kworkproteam-bot.png'},
+    {cat:'parsers',tag:'Парсеры',title:'OZON Parser',desc:'Парсер каталога Ozon по категориям: ретраи при сбоях, логирование и выгрузка в CSV.',img:'img/case-ozon-parser.png',demo:true},
+    {cat:'ai',tag:'AI',title:'Кейс в работе',desc:'Следующий AI-проект появится здесь сразу после сдачи — можем обсудить вашу задачу уже сейчас.',color:'#16b894'},
+    {cat:'analytics',tag:'Аналитика',title:'Кейс в работе',desc:'Дашборд или прогноз на основе ваших данных — раздел обновится после первого готового проекта.',color:'#4f93ff'}
   ];
   const pfOverlay=document.getElementById('pfOverlay');
   const pfGrid=document.getElementById('pfGrid');
@@ -1109,7 +1099,7 @@
   function renderProjects(filter){
     pfGrid.innerHTML=projects.filter(p=>filter==='all'||p.cat===filter).map(p=>`
       <div class="pf-card">
-        <div class="pf-icon" style="background:${p.color}">${p.tag.charAt(0)}</div>
+        ${p.img?`<div class="pf-thumb"><img src="${p.img}" alt="${p.title}" loading="lazy"></div>`:`<div class="pf-icon" style="background:${p.color}">${p.tag.charAt(0)}</div>`}
         <div class="pf-tag">${p.tag}</div>
         <h4>${p.title}</h4>
         <p>${p.desc}</p>
